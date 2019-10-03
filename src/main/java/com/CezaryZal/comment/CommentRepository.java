@@ -35,7 +35,19 @@ public class CommentRepository {
     public Comment getCommentByDate(LocalDate tmpDate) throws ParseException {
         System.out.println("LocalDate: " + tmpDate);
 
-
+        //przesuniecie o 1 dzien do przodu
+        LocalDate lDate = LocalDate.of(2018,05, 23);
+        //dziala normalnie
+        String dateText = "2018-05-23";
+        //Przesyłając util.DATE nie rozpoznaje, nie znajduje recordu; formatujac wyrzuca bład niezgodności
+        //SimpleDateFormat, rowniez nie znajduje recordu
+        SimpleDateFormat foo = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateUni = foo.parse("2018-05-25");
+        System.out.println(foo.format(dateUni));
+        //Calendar podobnie jak util.DATE
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = new GregorianCalendar(2018,4,24);
+        System.out.println(sdf.format(calendar.getTime()));
 
 
 
